@@ -1,18 +1,24 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+public class RandomArray {
+    public static void shuffle(Object[] array)
+    {
+        int noOfElements = array.length;
+        for (int i=0; i<noOfElements; i++)
+        {
+            int s=i+(int)(Math.random() * (noOfElements - i));
+            Object temp = array[s];
+            array[s] = array[i];
+            array[i] = temp;
 
-public class ShuffleArray {
+        }
 
-	public static void main(String[] args) {
-
-		Integer[] intArray = { 1, 2, 3, 4, 5, 6, 7 };
-
-		List<Integer> intList = Arrays.asList(intArray);
-		Collections.shuffle(intList);
-
-		intList.toArray(intArray);
-
-		System.out.println(Arrays.toString(intArray));
-	}
+    }
+    public static void main(String[]args)
+    {
+        Integer[] a = {1, 2, 3, 4, 5, 6, 7};
+        RandomArray.shuffle(a);
+        for (int i=0; i< a.length;i++)
+        {
+            System.out.print(a[i]+ " ");
+        }
+    }    
 }
